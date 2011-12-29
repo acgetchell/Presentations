@@ -8,6 +8,11 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{graphicx}
+\usepackage{subdepth}
+\usepackage{cite}
+\usepackage{url}
+\usepackage{notoccite}
+\usepackage{nag}
 \title{Newtonian approximation in Causal Dynamical Triangulations}
 \author{Adam Getchell}
 \date{}
@@ -20,12 +25,9 @@
 
 \begin{itemize}
 \item Can we recover $F=-\frac{Gm_{1}m_{2}}{r^{2}}$ from CDT?
-
 \item Do we have a sensible notion of \textquotedblleft{}mass\textquotedblright{}
-in Causal Dynamical Triangulations?
-
+in CDT?
 \item Semi-classical approximations not yet completely convincing \cite{trzesniewski2011analysis}
--- we would like direct results
 \end{itemize}
 
 \subsection{Previous Work}
@@ -133,26 +135,34 @@ And solving for the Einstein Field Equations in a vacuum (i.e. $G_{\mu\nu}=0$)
 we get:
 
 \begin{equation}
-G_{11}=-\partial_{v}m\partial_{v}n+\left(\partial_{v}n\right)^{2}-\partial_{v}m\partial_{v}\nu+\partial_{v}n\partial_{v}\nu+\left(\partial_{v}\nu\right)^{2}+\partial_{v}^{2}n+\partial_{v}^{2}\nu+\partial_{u}m\partial_{u}n+\partial_{u}m\partial_{u}\nu+\partial_{u}n\partial_{u}\nu=0
+G_{00}=-e^{2(\nu-m)}\left(\left(\partial_{v}n\right)^{2}+\partial_{v}^{2}m+\partial_{v}^{2}n+\left(\partial_{u}n\right)^{2}+\partial_{u}^{2}m+\partial_{u}^{2}n\right)=0\label{eq:G00}
+\end{equation}
+
+\begin{equation}
+\begin{split}
+G_{11}=-\partial_{v}m\partial_{v}n+\left(\partial_{v}n\right)^{2}-\partial_{v}m\partial_{v}\nu+\partial_{v}n\partial_{v}\nu+\left(\partial_{v}\nu\right)^{2}\\
++\partial_{v}^{2}n+\partial_{v}^{2}\nu+\partial_{u}m\partial_{u}n+\partial_{u}m\partial_{u}\nu+\partial_{u}n\partial_{u}\nu=0
+\end{split}
 \end{equation}
 
 
 \begin{equation}
-G_{21}=\partial_{v}n\partial_{u}m+\partial_{v}\nu\partial_{u}m+\partial_{v}m\partial_{u}n-\partial_{v}n\partial_{u}n+\partial_{v}m\partial_{u}\nu-\partial_{v}\nu\partial_{u}\nu-\partial_{u}\partial_{v}n-\partial_{u}\partial_{v}\nu=0
+\begin{split}
+G_{21}=\partial_{v}n\partial_{u}m+\partial_{v}\nu\partial_{u}m+\partial_{v}m\partial_{u}n-\partial_{v}n\partial_{u}n+\partial_{v}m\partial_{u}\nu\\
+-\partial_{v}\nu\partial_{u}\nu-\partial_{u}\partial_{v}n-\partial_{u}\partial_{v}\nu=0
+\end{split}
 \end{equation}
 
 
 \begin{equation}
-G_{22}=\partial_{v}m\partial_{v}n+\partial_{v}m\partial_{v}\nu+\partial_{v}n\partial_{v}\nu-\partial_{u}m\partial_{u}n+\partial_{u}m\partial_{u}\nu+\left(\partial_{u}n\right)^{2}-\partial_{u}m\partial_{u}\nu+\partial_{u}n\partial_{u}\nu+\left(\partial_{u}\nu\right)^{2}+\partial_{u}^{2}n+\partial_{u}^{2}\nu=0
+\begin{split}
+G_{22}=\partial_{v}m\partial_{v}n+\partial_{v}m\partial_{v}\nu+\partial_{v}n\partial_{v}\nu-\partial_{u}m\partial_{u}n+\partial_{u}m\partial_{u}\nu\\
++\left(\partial_{u}n\right)^{2}-\partial_{u}m\partial_{u}\nu+\partial_{u}n\partial_{u}\nu+\left(\partial_{u}\nu\right)^{2}+\partial_{u}^{2}n+\partial_{u}^{2}\nu=0
+\end{split}
 \end{equation}
 
 \begin{equation}
 G_{33}=e^{2(n-m)}\left(\left(\partial_{v}\nu\right)^{2}+\partial_{v}^{2}m+\partial_{v}^{2}\nu+\left(\partial_{u}\nu\right)^{2}+\partial_{u}^{2}m+\partial_{u}^{2}\nu\right)=0\label{eq:G33}
-\end{equation}
-
-
-\begin{equation}
-G_{00}=-e^{2(\nu-m)}\left(\left(\partial_{v}n\right)^{2}+\partial_{v}^{2}m+\partial_{v}^{2}n+\left(\partial_{u}n\right)^{2}+\partial_{u}^{2}m+\partial_{u}^{2}n\right)=0\label{eq:G00}
 \end{equation}
 
 Let:
@@ -162,7 +172,7 @@ Let:
 \end{equation}
 
 
-Adding together Eqns. (\ref{eq:G33}) and (\ref{eq:G00}) gives:
+Adding together Eqns. (\ref{eq:G00}) and (\ref{eq:G33}) gives:
 
 \begin{equation}
 \partial_{u}^{2}\chi+\partial_{v}^{2}\chi+\left(\partial_{u}\chi\right)^{2}+\left(\partial_{v}\chi\right)^{2}=0
@@ -253,11 +263,15 @@ For n point particles we have \cite{letelier1997superposition}:
 R=\sqrt{r^{2}+\left(z-z_{j}\right)^{2}}
 \end{equation}
 
+\subsection{Additional issues}
+
+
+
 \section{Applications to Causal Dynamical Triangulations}
 
 \subsection{Preliminaries}
 
-A simplex is a generalization of a triangle to arbitrary dimension. For example, a 2-simplex is a triangle, a 3-simplex is a tetrahedron, and a 4-simplex is a pentachoron.
+A simplex is a generalization of a triangle to arbitrary dimension. For example, a 2-simplex is a triangle, a 3-simplex is a tetrahedron, and a 4-simplex is a pentachoron. Topologically, an n-simplex is equivalent to an n-ball; that is, an n-dimensional manifold with boundary.
 
 An n-dimensional simplex has $n+1$ points or \emph{vertices}. A convex hull, or minimal convex set of these points is the \emph{m-face} of the \emph{n-simplex}. Thus, a vertex is a \emph{0-face}, and an edge between two vertices is the \emph{1-face}. We can extend this notation to \emph{2-faces} (triangles), \emph{3-faces} (tetrahedrons), \emph{4-faces} (pentachorons). We will not, at present, consider simplices of dimension higher than $n=4$, but this generalization gives us a useful way to reason about higher dimensional spaces.
 
@@ -276,13 +290,15 @@ A given face can be shared by another simplex. By requiring that \cite{weisstein
 \item The intersection of any two simplices of K is a face of each of them
 \end{itemize}
 
-We build up a useful structure called a simplicial complex.
+We build up a useful structure called a simplicial complex. Informally, this is a space with a triangulation. Formally, simplicial complexes have only been proven for spaces of dimension $d\le3$. A simplicial complex has a well-defined homology (simplicial homology) which is easy to compute.
 
 \subsection{Code Correctness}
 
-Implementing CDT in computer code is non-trivial. As a first step, an independent implementation of CDT has given similar results. \cite{kommu2011} However, we would like to do better by providing an implementation using Literate Programming coupled with Test Driven Development. This provides for the codebase to be better understood by researchers wishing to replicate results, and provides inherent integrity checks apart from the overall "it produced what we expected". Such methodology will be critical to expanding the performance of the code by using such techniques as parallel processing and highly optimized algorithms. The adage of "Make it work, then make it faster" applies.
+Implementing CDT in computer code is non-trivial. As a first significant step, an independent implementation of CDT has given similar results to the original work \cite{kommu2011}. We would like to build on Kommu's implementation using Literate Programming \cite{knuth_literate_1984} coupled with Test Driven Development specific to the programming language used \cite{rathore_clojure_2011}. This provides for the codebase to be better understood by researchers wishing to replicate results or expand the capabilities of the code, and provides inherent integrity checks apart from "it produced what we expected". Such methodology will be critical to expanding the performance of the code by using such techniques as parallel processing and highly optimized algorithms. The adage of "Make it work, make it right, make it fast" applies.
 
 The first building block of the code are the simplexes themselves. Using the known properties of simplicial complexes, we can provide for a series of checks that validate that simplices are being constructed correctly. Such checks will provide useful test cases when the underlying implementation of simplex data structures and moves are changed.
+
+\subsection{Data structures}
 
 \subsection{Issues}
 
