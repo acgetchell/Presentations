@@ -1,0 +1,13 @@
+.#*
+#ignore thumbnails created by windows
+Thumbs.db
+#ignore LaTeX build files
+*.aux
+*.bbl
+*.blg
+*.log
+*.gz
+*.toc
+*.dvi
+*.~vsd
+~*
